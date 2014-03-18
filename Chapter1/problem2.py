@@ -10,33 +10,30 @@
 
 def binary_search(array, k):
 
-    size = len(array)
+    upper_bound = len(array)-1
+    lower_bound = 0
 
-    # keeps track of where we are in the index
-    index = 0;
+    # if everything is equal to or less than k
+    if (array[upper_bound] <= k):
+        return -1
+    
+    while (upper_bound > (lower_bound + 1)):
 
-    while (index < size):
+        mid = int((lower_bound + upper_bound)/2)
 
-        # find the middle of the current portion of list
-        mid = round(index + (size-1 - index)/2)
+        #print(lower_bound, upper_bound)
 
-        # if the value is less than k, increase index
-        if (array[mid] < k):
-            index = mid + 1
-
-        elif (array[mid] == k):
-            # checks to see if the previous
-            # entry also holds the same value
-            # and continues as such since we
-            # are looking for the first appearance
-            # in the list
-            while (array[mid-1] == k):
-                mid = mid -1
-            return mid
-
+        # then search bottom half
+        if (array[mid] >= k):
+            upper_bound = mid
         else:
-            index = mid - 1
-    return -1
+            lower_bound = mid
+
+
+    if (array[lower_bound] == k):
+        return lower_bound
+    elif (array[upper_bound] == k):
+        return upper_bound
 
 
 # Test the binary search function
