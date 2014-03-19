@@ -34,12 +34,13 @@ def binary_search(array, k):
         return lower_bound
     elif (array[upper_bound] == k):
         return upper_bound
-
+    else:
+        return -1
 
 # Test the binary search function
+if __name__ == "__main__":
+    A = [1, 2, 3, 3, 3, 4, 4, 4, 5, 6]
 
-A = [1, 2, 3, 3, 3, 4, 4, 4, 5, 6]
-
-print(binary_search(A,3))
-print(binary_search(A,4))
-print(binary_search(A,7))
+    print(binary_search(A,3))
+    print(binary_search(A,4))
+    print(binary_search(A,7))

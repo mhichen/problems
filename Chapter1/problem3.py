@@ -32,7 +32,7 @@ def get_one_larger(array, k):
         return upper_bound
     else:
         return lower_bound
-
+    
 
 # Test function
 myarray = [0, 4, 6, 7, 9, 10]
