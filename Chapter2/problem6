@@ -1,0 +1,20 @@
+#********************************************
+# Least distance sorting: If there are 20
+# statues, sort them by height such that the
+# shortest statue is on the left and the 
+# statues are moved the least distance.
+#********************************************
+
+Given a row of statues, you compare the first two, and if the
+one on the right is shorter, you swap them.  Then you compare
+what is now the second and third statue, and if the third statue
+is shorter, you swap them, and you continue comparing to the 
+left until the statue on the left of the comparison is no longer
+taller than the right of the comparison.  Now if the third statue
+had been taller than the second, you would have simply moved on to the
+fourth statue and compared it to the third.  This process will
+continuously push the shorter statues to the left while moving them
+a minimal distance, but the algorithm is very slow and inefficient.
+
+
+
