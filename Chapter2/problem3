@@ -1,0 +1,24 @@
+#**************************************************************
+# Given N players participating in a tennis tournament, what is
+# the least number of matches needed to find the best player?
+# What is the number of matches needed to find the best and the
+# runnerup?
+#**************************************************************
+
+To find the best player, you take two players initially, and 
+have a match to find who is the stronger player.  Then the winner
+continues on to play a third player, and the winner of that second
+match goes on to play a fourth player.  Keeping this pattern on to
+the end will result in finding the best player.  This will take
+N - 1 comparisons.
+
+
+To find the two best players, you split the N players into pairs, 
+resulting in N/2 matches.  Then taking the winners of those matches,
+you can again pair them up (another N/4 matches), and find the winners.
+Pairing the winners again up until the final two players will produce
+the best and second best players. This results in N - 1 matches.
+This can be easily seen with the case of 8 players, where you first
+have 4 matches (total: 4), then of the 4 matches, you proceed to 2 more 
+matches between the winners of the 4 matches (total: 6), followed by 
+a final match between the winners of the previous two matches (total: 7).
