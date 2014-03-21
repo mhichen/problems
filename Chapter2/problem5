@@ -1,0 +1,17 @@
+#***************************************************
+# Given 25 horses, and being only able to race them
+# five at a time, how many races are necessary to
+# find the three fastest horses?
+#***************************************************
+
+To begin, you can hold 5 races between the 25 horses.
+Then of the 5 winners, you can hold another race to 
+put the 5 groups in order of fastest to slowest.
+The winner of the 5 fastest horses is obviously the fastest
+of the 25.  The next two fastest could either be the
+second and third of the 5 fastest horses, or they could be
+any of the 2nd-3rd of the fastest group, the 1st-2nd of the
+second fastest group. or the fastest of the 3rd group.  This
+narrows down the pool to another 5 horses, and another match
+will produce the second fastest and third fastest of the 25 horses.
+This process will take 7 races.
