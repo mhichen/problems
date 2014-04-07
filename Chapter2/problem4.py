@@ -36,7 +36,9 @@ def find_min_max(elements_list):
 
 # Test functions
 
-mylist = 100*(random.sample(10) - 0.5)
-print(mylist)
-print(find_min_max(mylist))
+if __name__ == "__main__":
+
+    mylist = 100*(random.sample(10) - 0.5)
+    print(mylist)
+    print(find_min_max(mylist))
 

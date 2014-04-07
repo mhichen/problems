@@ -33,5 +33,7 @@ def find_anagrams(words):
     return organized_list
 
 # Test functions
-words = ['tic', 'tac', 'toe', 'cat']
-print(find_anagrams(words))
+if __name__ == "__main__":
+    
+    words = ['tic', 'tac', 'toe', 'cat']
+    print(find_anagrams(words))

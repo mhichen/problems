@@ -22,6 +22,8 @@ def contains_sum_equal_to(S, array):
 
 
 
-myarray = [0, 2, 4, 5, 10, 12, 16, 19]
+if __name__ == "__main__":
 
-print(contains_sum_equal_to(11, myarray))
+    myarray = [0, 2, 4, 5, 10, 12, 16, 19]
+
+    print(contains_sum_equal_to(11, myarray))

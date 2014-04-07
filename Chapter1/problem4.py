@@ -35,6 +35,8 @@ def find_index_equivalent(array):
     elif (array[upper_bound] == upper_bound):
         return upper_bound
     
+
+if __name__ == "__main__":
     
-myarray = [-1, 0, 2, 4, 6, 9, 10, 11, 14, 17, 23]
-print(find_index_equivalent(myarray))
+    myarray = [-1, 0, 2, 4, 6, 9, 10, 11, 14, 17, 23]
+    print(find_index_equivalent(myarray))

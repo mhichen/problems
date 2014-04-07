@@ -35,6 +35,8 @@ def get_one_larger(array, k):
     
 
 # Test function
-myarray = [0, 4, 6, 7, 9, 10]
+if __name__ == "__main__":
+    
+    myarray = [0, 4, 6, 7, 9, 10]
 
-print(get_one_larger(myarray, 4))
+    print(get_one_larger(myarray, 4))

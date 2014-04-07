@@ -42,6 +42,9 @@ def find(array, k):
 
 
 # Test function
-myarray = [0, 5, 6, 10, 33, 55, 72, 120]
 
-print(find(myarray, 1000))
+if __name__ == "__main__":
+
+    myarray = [0, 5, 6, 10, 33, 55, 72, 120]
+
+    print(find(myarray, 1000))

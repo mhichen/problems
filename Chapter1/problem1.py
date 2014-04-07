@@ -45,5 +45,8 @@ def floor_of_square_root_of(in_num):
     return midpoint
 
 
+
 # Test the function
-print("The answer is ", floor_of_square_root_of(78))
+if __name__ == "__main__":
+    
+    print("The answer is ", floor_of_square_root_of(78))
