@@ -12,6 +12,31 @@ class Node:
         self.left = left
         self.right = right
 
+
+    def find_first_largest(self, n):
+        
+        # check this node's key first
+        if n < self.key:
+            
+            if self.left is None:
+                result = None
+            else:
+                result = self.left.find_first_largest(n)
+            
+            if result is None:
+                return self.key
+            else:
+                return result
+        else:
+            if self.right is not None:
+                return self.right.find_first_largest(n)
+            else:
+                return None
+
+            
+            
+
+        
     # inserts a number n recursively
     def insert_recursive(self, n):
 
