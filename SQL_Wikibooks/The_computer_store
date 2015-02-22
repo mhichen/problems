@@ -1,10 +1,13 @@
 Select the names of all the products in the store.
 SELECT Name FROM Products;
 
+Select the names and the prices of all the products in the store.
 SELECT Name, Price FROM Products;
 
+Select the name of the products with a price less than or equal to $200.
 SELECT Name FROM Products WHERE Price <= 200;
 
+Select all the products with a price between $60 and $120.
 SELECT * FROM Products WHERE Price >= 60 AND Price <= 120;
 SELECT * FROM Products WHERE Price BETWEEN 60 AND 120;
 
@@ -42,4 +45,19 @@ SELECT AVG(Price), Manufacturers.Name FROM Products INNER JOIN Manufacturers ON 
 Select the name and price of the cheapest product.
 SELECT Name, Price FROM Products WHERE Price = (SELECT MIN(Price) FROM Products);
 
+Select the name of each manufacturer along with the name and price of its most expensive product.
+SELECT Products.Name, Manufacturer, MAX(Price) FROM Products, Manufacturers WHERE Manufacturer = Manufacturers.Code Group BY Manufacturer;
+
+Add a new product: Loudspeakers, $70, manufacturer 2.
+INSERT INTO Products(Name, Price, Manufacturer)
+VALUES ('Loudspeakers', 70, 2);
+
+Update the name of product 8 to "Laser Printer".
+UPDATE Products SET Name = 'Laser Printer' WHERE Code = 8;
+
+Apply a 10% discount to all products.
+UPDATE Products SET Price = 0.9 * Price;
+
+Apply a 10% discount to all products with a price larger than or equal to $120.
+UPDATE Products SET Price = 0.9 * Price WHERE Price >= 120;
 
