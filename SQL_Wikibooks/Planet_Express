@@ -1,0 +1,11 @@
+Who receieved a 1.5kg package?
+SELECT Name FROM Client WHERE AccountNumber = 
+(SELECT Recipient FROM Package WHERE Weight = 1.5)
+
+What is the total weight of all the packages that he sent?
+SELECT SUM(Weight) FROM Package WHERE Sender = 
+(SELECT AccountNumber FROM Client WHERE AccountNumber =
+(SELECT Recipient FROM Package WHERE Weight = 1.5));
+
+
+
