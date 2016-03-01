@@ -13,13 +13,16 @@ public:
     std::vector<int> indices;
     std::map<int, int> hashmap;// = new std::map<int, int>;
 
+    // Loop over array of numbers
     for (int i = 0; i < nums.size(); i++)
     {
-      //std::cout << nums[i] << "\n";
+
       int x = nums[i];
 
+      // look for second number adding up to target in hash table
       std::map<int, int>::iterator it = hashmap.find(target - x);
-      
+
+      // if the second number was found, save to indices array
       if (it != hashmap.end()){
 	indices.push_back(it->second + 1);
 	indices.push_back(i + 1);
