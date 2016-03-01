@@ -14,13 +14,12 @@ public:
     int result = 0;
 
     while (num != 0){
-      if (num > 214748364){
-	return result;
+      if (std::abs(num) > 214748364){
+	return 0;
       }
 
       result = result * 10 + num%10;
-
-      num /= 10;
+      num /= 10; 
       
     }
 
@@ -34,7 +33,7 @@ public:
 int main()
 {
 
-  int number = 123;
+  int number = -1234;
 
   Solution sol;
   
