@@ -7,9 +7,6 @@ class Solution
 {
   
 public:
-  /**
-   * This takes n*log(n) to run
-   */
   std::vector<int> TwoSum(std::vector<int> nums, int target)
   {
 
@@ -23,36 +20,6 @@ public:
       }
       
     }
-  };
-
-
-  /**
-   * This method uses two indices
-   */
-  std::vector<int> TwoSum2(std::vector<int> nums, int target)
-  {
-    int i = 0;
-    int j = nums.size() - 1;
-
-    while (i < j)
-    {
-      int sum = nums[i] + nums[j];
-      // Case 1: If sum > target
-      if (sum > target)
-      {
-	j --;
-      }
-      else if (sum < target) // Case 2: If sum < target
-      {
-	i++;
-      }
-      else // Case 3: If sum == target
-      {
-	return std::vector<int> {i,j};
-      }
-      
-    }
-    
   };
 
 private:
@@ -94,10 +61,8 @@ int main()
   std::vector<int> tnum = {1, 3, 4, 6, 8};
   int target = 10;
   Solution tsol;
-  std::vector<int> solution = tsol.TwoSum2(tnum, target);
+  std::vector<int> solution = tsol.TwoSum(tnum, target);
 
-  std::cout << "Indices of the two integers are \n";
-  
   for (std::vector<int>::const_iterator i = solution.begin(); i != solution.end(); ++i)
   {
     std::cout << *i << "\n";
