@@ -11,42 +11,41 @@ class Solution
 {
   
 public:
-  ListNode* mergeTwoLists(ListNode* l1, ListNode* l2){
+  ListNode* swapNodesInPairs(ListNode* l1){
+
     // Create dummy head
     ListNode* dummyHead = new ListNode(0);
-    ListNode* p = l1, *q = l2, *curr = dummyHead;
 
-    int carry = 0;
+    dummyHead->next = l1;
 
-    // Needs to be OR since one list could be longer than the other
-    while ( (p != NULL) || (q != NULL) )
+    // Let p be current node
+    ListNode* p = l1;
+    ListNode* prev = dummyHead;
+
+    while ( (p != NULL) && p->next != NULL)
     {
-      int x = (p != NULL) ? p->val : 0;
-      int y = (q != NULL) ? q->val: 0;
-      int dummyval = x + y + carry;
+      // Let q be next, and r be next-next
+      ListNode* q = p -> next;
+      ListNode* r = p -> next -> next;
 
-      carry = dummyval / 10;
+      // This sets up for after the swap since the
+      // new previous's next will be q
+      prev -> next = q;
 
-      curr->next = new ListNode(dummyval % 10);
-      curr = curr->next;
+      // This is where the swapping occurs
+      q -> next = p;
+      p -> next = r;
 
-      if (p != NULL)
-      {
-	p = p->next;
-      }
-
-      if (q != NULL)
-      {
-	q = q->next;
-      }
-    } // End of while
-
-    if (carry > 0){
-      curr->next = new ListNode(carry);
+      prev = p;  // Why is this not q?
+      p = r; 
     }
-
     return dummyHead->next;
   }
+    
+
+
+    
+
   
   
 };
