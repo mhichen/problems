@@ -1,7 +1,7 @@
 #include<iostream>
 #include<map>
 #include<vector>
-  
+#include<stdexcept>  
 
 class Solution
 {
@@ -10,33 +10,37 @@ public:
   std::vector<int> TwoSum(std::vector<int> nums, int target)
   {
 
-    std::vector<int> indices;
-    std::map<int, int> hashmap;// = new std::map<int, int>;
+    // array to be returned indicating location of two numbers
+    std::vector<int>indices;
 
-    // Loop over array of numbers
+    // hash table of the integers in nums
+    std::map<int, int> hashmap;
+
+    // Loop over array of numbers, nums
     for (int i = 0; i < nums.size(); i++)
     {
-
       int x = nums[i];
-
-      // look for second number adding up to target in hash table
+      
+      // Check if the second number (target - x) is in hash table
       std::map<int, int>::iterator it = hashmap.find(target - x);
 
-      // if the second number was found, save to indices array
-      if (it != hashmap.end()){
-	indices.push_back(it->second + 1);
-	indices.push_back(i + 1);
+      //If (target - x) was found, save to indices array
+      if (it != hashmap.end())
+      {
+	indices.push_back(it->second);
+	indices.push_back(i); //
 	return indices;
       }
-      hashmap[x] =  i;
+
+      // If this point is reached, means that (target-x) was not found
+      // So x should be added to the hashtable
+      hashmap[x] = i;
 
     }
 
-    return indices;
+    throw std::invalid_argument("No two sum solution");
   }
-
-  
-  
+      
 };
 
 // *******************************************************

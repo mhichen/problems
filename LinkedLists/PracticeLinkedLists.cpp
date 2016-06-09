@@ -398,6 +398,79 @@ public:
     *b = bcurr;
   }
 
+  // Given two lists, merge nodes together to make one list,
+  // taking nodes alternately
+  Node* shuffleMerge(Node* a, Node* b)
+  {
+
+    /// Approach 1 
+    Node* result;
+    Node* tail = result;
+    result->next = NULL;
+
+    while(1){
+      if (a == NULL)
+      {
+	tail->next = b;
+	break;
+      }
+      else if (b == NULL)
+      {
+	tail->next = a;
+	break;
+      }
+      else{
+	moveNode(&(tail->next), &a);
+	tail = tail->next;
+	moveNode(&(tail->next), &b);
+	tail = tail->next;
+      }
+    }
+
+    return (result->next);
+
+    /// End Approach 1
+
+  }
+  
+  // Takes two lists, each is sorted in increasing order
+  // and merges the two into one list in increasing order
+  // Should return the new list
+  Node* sortedMerge(Node* a, Node* b)
+  {
+
+    Node* result;
+    Node* tail = result;
+    result->next = NULL;
+
+    while(1){
+      if (a == NULL)
+      {
+	tail->next = b;
+	break;
+      }
+      else if (b == NULL)
+      {
+	tail->next = a;
+	break;
+      }
+      //      else{
+
+      if (a->val <= b->val)
+      {
+	moveNode(&(tail->next), &a);
+      }
+      else
+      {
+	moveNode(&(tail->next), &b);
+      }
+      tail = tail->next;
+	//}
+    }
+
+    return result->next;
+  }
+
   
   
   //**************************************//
@@ -545,6 +618,8 @@ public:
     	      << getNth(a, 1) << " "
     	      << getNth(a, 2) << " "
        	      << getNth(a, 3) << "\n";
+    deleteList(a);
+    deleteList(b);
 
   }
 
@@ -560,9 +635,38 @@ public:
     std::cout << getNth(a, 0) << " "
     	      << getNth(a, 1) << "\n"
     	      << getNth(b, 0) << "\n";
-    
+    deleteList(source);
+    deleteList(a);
+    deleteList(b);
   }
+  
+  void sortedMergeTest()
+  {
+    std::cout << "Executing sortedMergeTest \n";
+    Node* a = BuildOneTwoThree();
+    Node* b = NULL;
+    insertNth(&b, 0, 12);
+    insertNth(&b, 1, 13);
+    insertNth(&b, 2, 14);
+    insertNth(&b, 3, 15);
+ 
+    std::cout << "Built b \n";
+    std::cout << "\n\n";
+    std::cout << "Before sorted merge \n";
+    Node* c = sortedMerge(a, b);
+    std::cout << "After sorted merge \n";
 
+    for (int i = 0; i < length(c); i++){
+
+      std::cout << getNth(c, i) << " ";
+	
+    }
+    std::cout << "\n";
+
+    deleteList(a);
+    deleteList(b);
+    deleteList(c);
+  }
 };
 
 // *******************************************************
@@ -577,7 +681,8 @@ int main()
   tsol.sortedInsertTest();
   tsol.insertSortTest();
   tsol.removeDuplicatesTest();
-  tsol.moveNodeTest();
-  tsol.alternatingSplitTest();
+  //tsol.moveNodeTest();
+  //tsol.alternatingSplitTest();
+  tsol.sortedMergeTest();
 }
   
