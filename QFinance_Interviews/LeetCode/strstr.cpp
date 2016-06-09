@@ -13,35 +13,38 @@ public:
    */
   int strstr(std::string needle, std::string haystack)
   {
-
-    // This indexes haystack
+    // Index haystack
     for (int i = 0; ; i++)
     {
-      // This indexes needle
+      // Index needle
       for (int j = 0; ; j++)
       {
-	// reached the end of segment matching needle
-	if (j == needle.length() )
+	// Reach this point if the full needle has been matched
+	// in the previous iteration over j so all that needs
+	// to be done is returning the starting index in the
+	// haystack
+	if (j == needle.length())
 	{
 	  return i;
 	}
 
-	// needle's length is greater than haystack's length
-	if ( (i + j) == haystack.length() )
+	// If at any point, the sum of the indices
+	// is greater than the length of the haystack,
+	// then the needle is now longer than the (remaining)
+	// haystack
+	if (i + j == haystack.length())
 	{
 	  return -1;
 	}
 
-	// restart needle index if mismatched character
-	if (needle[j] != haystack[i+j])
-	{
+	// Starts over the needle (j) index if mismatch found
+	if (haystack[i+j] != needle[j]){
 	  break;
 	}
-	
       }
-	
+
     }
-    
+
   }
   
 };
